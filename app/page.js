@@ -1,5 +1,5 @@
 // File: app/page.js
-// Kodeu kanggo Front-End sareng Tampilan Portfolio
+// Kodeu kanggo Front-End dan Tampilan Portfolio Klien (LENGKEP)
 
 import React from 'react';
 
@@ -25,7 +25,11 @@ const styles = {
   navLink: { 
     color: '#007bff', 
     textDecoration: 'none', 
-    fontWeight: 'bold' 
+    fontWeight: 'bold',
+    transition: 'color 0.3s'
+  },
+  navLinkHover: {
+    color: '#0056b3'
   },
   section: { 
     padding: '40px 20px', 
@@ -43,66 +47,88 @@ const styles = {
     padding: '20px', 
     fontSize: '0.8em', 
     color: '#999' 
+  },
+  projectCard: {
+    backgroundColor: '#2a2a2a', 
+    padding: '15px', 
+    borderRadius: '8px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)'
   }
 };
+
+// Komponen Card Proyek
+const ProjectCard = ({ title, description, link }) => (
+    <div style={styles.projectCard}>
+        <h3 style={{ color: '#007bff' }}>{title}</h3>
+        <p style={{ fontSize: '0.9em', color: '#ccc' }}>{description}</p>
+        {link && <a href={link} target="_blank" style={styles.navLink}>Lihat Demo →</a>}
+    </div>
+);
+
 
 export default function PortfolioPage() {
   return (
     <div style={styles.container}>
       {/* HEADER DAN NAVIGASI */}
       <header style={styles.header}>
-        <h1 style={{ fontSize: '2.5em' }}>Balaksix</h1>
+        <h1 style={{ fontSize: '2.5em' }}>Balaksix Portfolio</h1>
         <nav style={styles.nav}>
-          <a href="#about" style={styles.navLink}>About</a>
-          <a href="#projects" style={styles.navLink}>Projects</a>
-          <a href="#contact" style={styles.navLink}>Contact</a>
+          <a href="#about" style={styles.navLink}>Tentang</a>
+          <a href="#projects" style={styles.navLink}>Proyek</a>
+          <a href="#contact" style={styles.navLink}>Kontak</a>
         </nav>
       </header>
 
-      {/* BAGIAN ABOUT */}
+      {/* BAGIAN ABOUT - EUSI CONTO LENGKEP */}
       <section id="about" style={styles.section}>
-        <h2 style={styles.h2}>About Me</h2>
-        <p style={{ lineHeight: '1.6' }}>
-          Hello, I am Balaksix. I am a professional full-stack developer specializing in creating modern and responsive web applications. I focus on creating clean code and excellent user experiences.
+        <h2 style={styles.h2}>Tentang Saya</h2>
+        <p style={{ lineHeight: '1.6', textAlign: 'justify', color: '#e0e0e0' }}>
+          Halo, nami abdi Balaksix. Abdi saurang *Full-Stack Developer* anu berpengalaman dina ngawangun aplikasi web modern nganggo Next.js, React, sareng Node.js. Abdi fokus kana nyiptakeun solusi téknologi anu éfisién sareng desain anu *user-friendly*. Abdi percanten yén kodeu anu bersih tiasa ngahasilkeun pangalaman digital anu luar biasa. Hayu urang gawé bareng ngawujudkeun proyék impian anjeun!
         </p>
       </section>
 
-      {/* BAGIAN PROJECTS */}
+      {/* BAGIAN PROJECTS - EUSI CONTO LENGKEP */}
       <section id="projects" style={styles.section}>
-        <h2 style={styles.h2}>Projects</h2>
+        <h2 style={styles.h2}>Proyek Pilihan</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginTop: '30px' }}>
           
-          {/* Project Card 1: Ganti eusina! */}
-          <div style={{ backgroundColor: '#2a2a2a', padding: '15px', borderRadius: '8px' }}>
-            <h3 style={{ color: '#007bff' }}>Project AI SaaS</h3>
-            <p>Built a Micro-SaaS AI tool for generating Instagram bios using Next.js and Google Gemini API.</p>
-            <a href="https://bio-perfect-ai-erzk.vercel.app/" style={styles.navLink}>View Live Demo</a>
-          </div>
+          <ProjectCard 
+            title="BioPerfect AI (Micro-SaaS)"
+            description="Aplikasi Micro-SaaS AI kanggo ngahasilkeun Bio Instagram anu dioptimalkeun. Dibangun nganggo Next.js sareng Gemini API."
+            link="https://bio-perfect-ai-erzk.vercel.app/"
+          />
 
-          {/* Project Card 2: Ganti eusina! */}
-          <div style={{ backgroundColor: '#2a2a2a', padding: '15px', borderRadius: '8px' }}>
-            <h3 style={{ color: '#007bff' }}>E-commerce Website</h3>
-            <p>Developed a responsive e-commerce platform for selling local products, complete with a payment gateway.</p>
-            {/* Link di dieu */}
-          </div>
+          <ProjectCard 
+            title="Sistem E-commerce Lokal"
+            description="Sistem penjualan *online* saderhana kalayan integrasi Midtrans, fokus kana produk *handicraft* lokal."
+            link="#" // Ganti ku link asli klien
+          />
           
+          <ProjectCard 
+            title="Landing Page Perusahaan"
+            description="Desain *Landing Page* anu *responsive* sareng konvérsi tinggi pikeun jasa konsultan finansial."
+            link="#" // Ganti ku link asli klien
+          />
         </div>
       </section>
 
-      {/* BAGIAN CONTACT */}
+      {/* BAGIAN CONTACT - EUSI CONTO LENGKEP */}
       <section id="contact" style={styles.section}>
-        <h2 style={styles.h2}>Contact</h2>
-        <p style={{ textAlign: 'center' }}>
-          Interested in a collaboration? Feel free to reach out!
+        <h2 style={styles.h2}>Hubungi Saya</h2>
+        <p style={{ textAlign: 'center', color: '#e0e0e0' }}>
+          Pikeun kolaborasi, proposal proyek, atanapi diskusi téknologi, mangga hubungi abdi:
         </p>
         <p style={{ textAlign: 'center', marginTop: '15px' }}>
-          Email: <a href="mailto:contact@balaksix.com" style={styles.navLink}>contact@balaksix.com</a>
+          Email: <a href="mailto:balaksix.dev@email.com" style={styles.navLink}>balaksix.dev@email.com</a>
+        </p>
+        <p style={{ textAlign: 'center' }}>
+          GitHub: <a href="https://github.com/fsahidin3-hub" target="_blank" style={styles.navLink}>fsahidin3-hub</a>
         </p>
       </section>
 
       {/* FOOTER */}
       <footer style={styles.footer}>
-        <p>&copy; 2025 Balaksix Portfolio. All rights reserved.</p>
+        <p>&copy; 2025 Balaksix Portfolio. Ditenagakeun ku Next.js & Vercel.</p>
       </footer>
     </div>
   );
